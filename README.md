@@ -1,6 +1,6 @@
 # REST API Дошки оголошень
 
-REST API для дошки оголошень з JWT-автентифікацією, авторизацією та контролем доступу. Реалізовано в рамках курсового завдання магістратури.
+REST API для дошки оголошень з JWT-автентифікацією, авторизацією та контролем доступу.
 
 ## Загальний опис
 
@@ -66,7 +66,7 @@ npm run dev
 | POST  | `/auth/register` | Реєстрація користувача        | Ні   |
 | POST  | `/auth/login`    | Вхід користувача              | Ні   |
 | POST  | `/auth/refresh`  | Оновлення токенів             | Ні   |
-| POST  | `/auth/logout`   | Вихід                         | Ні   |
+| POST  | `/auth/logout`   | Вихід                         | Так  |
 | GET   | `/auth/me`       | Профіль поточного користувача | Так  |
 
 ### Оголошення
@@ -112,7 +112,7 @@ PATCH використовує ті ж правила валідації, але
 ## Структура проекту
 
 ```
-boilerplate/
+hw/
 ├── prisma/
 │   ├── schema.prisma
 │   ├── client.ts
@@ -155,7 +155,7 @@ boilerplate/
 
 | Команда                   | Опис                                 |
 | ------------------------- | ------------------------------------ |
-| `npm run dev`             | Запуск з hot reload (`node --watch`) |
+| `npm run dev`             | Запуск у режимі спостереження        |
 | `npm start`               | Запуск у виробничому режимі          |
 | `npm run prisma:migrate`  | Створення та застосування міграцій   |
 | `npm run prisma:generate` | Генерація Prisma Client              |
@@ -171,7 +171,3 @@ Swagger UI доступний за адресою: http://localhost:3000/api-doc
 - `User` — `username` (унікальний), хешований `password`, `email` (унікальний), `name`, `createdAt`
 - `RefreshToken` — `token` (унікальний), зв'язок з `User`
 - `Announcement` — `title`, `description`, `price`, `category`, зв'язок з `User`, `createdAt`, `updatedAt`
-
-## Ліцензія
-
-ISC
